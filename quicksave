@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
 import os
 import colors as c
-omit=[__file__[2:],'colors.py']
+omit=[]
+repos=[]
+for thing in os.listdir('.'):
+    if os.path.isdir(thing):
+        if '.git' in os.listdir(thing):
+            repos.append(thing)
+        else:
+            omit.append(thing)
+    else:
+        omit.append(thing)
+
 print("Omitting "+', '.join(omit))
-for repo in os.listdir('.'):
-    if repo not in omit:
-        print(c.rc())
-        os.system('cd '+repo+' && pwd && save')
+for repo in repos:
+    print(c.rc())
+    os.system('cd '+repo+' && pwd && save')
 print(c.x)
