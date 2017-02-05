@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+import os
+filename=__file__[2:]
+print("Omitting "+filename)
+for repo in os.listdir('.'):
+    if repo!=filename:
+        print()
+        os.system('cd '+repo+' && pwd && save')
