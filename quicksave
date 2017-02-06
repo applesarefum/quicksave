@@ -12,7 +12,7 @@ for thing in os.listdir('.'):
     else:
         omit.append(thing)
 
-if not omit:
+if omit:
     print("Omitting "+', '.join(omit))
 for repo in repos:
     print(c.rc())
