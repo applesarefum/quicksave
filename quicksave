@@ -17,4 +17,5 @@ if omit:
 for repo in repos:
     print(c.rc())
     os.system('cd '+repo+' && pwd && save')
+    print(c.rc())
 print(c.x)
