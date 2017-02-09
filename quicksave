@@ -15,7 +15,8 @@ for thing in os.listdir('.'):
 if omit:
     print("Omitting "+', '.join(omit))
 for repo in repos:
+    os.system('cd '+repo+' && pwd')
     print(c.rc())
-    os.system('cd '+repo+' && pwd && save')
+    os.system('cd '+repo+' && save')
     print(c.rc())
 print(c.x)
