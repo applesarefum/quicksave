@@ -4,11 +4,8 @@ import colors as c
 omit=[]
 repos=[]
 for thing in os.listdir('.'):
-    if os.path.isdir(thing):
-        if '.git' in os.listdir(thing):
-            repos.append(thing)
-        else:
-            omit.append(thing)
+    if os.path.isdir(thing) and '.git' in os.listdir(thing):
+        repos.append(thing)
     else:
         omit.append(thing)
 
