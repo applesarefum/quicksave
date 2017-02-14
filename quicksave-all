@@ -6,8 +6,8 @@ repos=[]
 defer=[]
 def search(folder):
     for thing in os.listdir(folder):
-        if os.path.isdir(thing):
-            if '.git' in os.listdir(thing) and :
+        if os.path.isdir(thing) and thing[0]!='.':
+            if '.git' in os.listdir(thing):
                 repos.append(thing)
             else:
                 defer.append(thing)
@@ -16,8 +16,9 @@ def search(folder):
 search(os.environ['HOME'])
 for folder in defer:
     search(folder)
-if omit:
-    print("Omitting "+', '.join(omit))
+
+print("Deferring "+', '.join(defer))
+print("Omitting "+', '.join(omit))
 for repo in repos:
     os.system('cd '+repo+' && pwd')
     print(c.rc())
