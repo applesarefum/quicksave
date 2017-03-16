@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+import os
+import colors as c
+omit=[]
+repos=[]
+for thing in os.listdir('.'):
+    if os.path.isdir(thing) and '.git' in os.listdir(thing):
+        repos.append(thing)
+    else:
+        omit.append(thing)
+
+if omit:
+    print("Omitting "+', '.join(omit))
+for repo in repos:
+    os.system('cd '+repo+' && pwd')
+    print(c.rc())
+    os.system('cd '+repo+' && git pull')
+    print(c.x)
